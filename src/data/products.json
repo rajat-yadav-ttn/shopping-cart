@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Camera",
+    "price": 450,
+    "rating": 4,
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Television",
+    "price": 150,
+    "rating": 5,
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Phone",
+    "price": 350,
+    "rating": 3,
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Laptop",
+    "price": 450,
+    "rating": 4,
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Desktop",
+    "price": 150,
+    "rating": 5,
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Fridge",
+    "price": 350,
+    "rating": 3,
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+  }
+]
