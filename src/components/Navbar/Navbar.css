@@ -63,3 +63,41 @@ a.your-cart-btn {
 .heading {
   font-size: 2rem;
 }
+
+.cart-icon {
+  position: relative;
+  right: 20px;
+  top: 6px;
+}
+
+.cart-icon img {
+  margin-top: -10px;
+  height: 40px;
+  width: 40px;
+}
+
+.cart-icon:hover img {
+  transform: scale(1.1);
+  transition: all 0.4s;
+}
+
+.cart-dot {
+  position: absolute;
+  top: -8px;
+  right: 9px;
+  background-color: var(--main-color);
+  padding: 1px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.cart-dot h4 {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

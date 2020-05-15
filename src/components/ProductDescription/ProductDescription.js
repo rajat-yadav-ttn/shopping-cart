@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./ProductDescription.css";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Products from "../../data/products.json";
 
 const Child = ({ match }) => {
@@ -11,11 +11,12 @@ const Child = ({ match }) => {
   });
   return (
     <div>
-      {match.isExact && (
+      {
         <div>
           <h1>{prod.name}</h1>
+          <h2>{prod.rating}</h2>
         </div>
-      )}
+      }
     </div>
   );
 };

@@ -4,41 +4,59 @@
     "name": "Camera",
     "price": 450,
     "rating": 4,
-    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+    "category": "electronics",
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg",
+    "quantity": 0,
+    "inCart": false
   },
   {
     "id": 2,
     "name": "Television",
     "price": 150,
     "rating": 5,
-    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+    "category": "electronics",
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg",
+    "quantity": 0,
+    "inCart": false
   },
   {
     "id": 3,
     "name": "Phone",
     "price": 350,
     "rating": 3,
-    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+    "category": "electronics",
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg",
+    "quantity": 0,
+    "inCart": false
   },
   {
     "id": 4,
     "name": "Laptop",
     "price": 450,
     "rating": 4,
-    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+    "category": "electronics",
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg",
+    "quantity": 0,
+    "inCart": false
   },
   {
     "id": 5,
-    "name": "Desktop",
+    "name": "PS4",
     "price": 150,
     "rating": 5,
-    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+    "category": "electronics",
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg",
+    "quantity": 0,
+    "inCart": false
   },
   {
     "id": 6,
     "name": "Fridge",
     "price": 350,
     "rating": 3,
-    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg"
+    "category": "electronics",
+    "img": "https://i.pcmag.com/imagery/reviews/03lo9RsLzRw3txoeExNaEHW-38..v_1574731241.jpg",
+    "quantity": 0,
+    "inCart": false
   }
 ]
