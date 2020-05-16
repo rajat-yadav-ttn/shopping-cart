@@ -1,0 +1,45 @@
+.payment-container {
+  border: 1px solid rgb(221, 221, 221);
+  box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
+  padding: 1rem 1rem 2rem 1rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+
+.payment-form {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.payment-form input {
+  margin: 1rem 0;
+}
+
+.payment-container h3 {
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.paypal-content {
+  display: flex;
+  width: 94%;
+  margin: 0 auto;
+}
+
+.paypal-content i {
+  color: grey;
+}
+
+.card-input {
+  position: relative;
+}
+
+.card-icon {
+  position: absolute;
+  top: 27px;
+  right: 8px;
+  font-size: 1.4rem;
+  color: grey;
+}

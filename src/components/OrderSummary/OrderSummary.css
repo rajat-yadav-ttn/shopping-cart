@@ -1,0 +1,120 @@
+.order-summary-container {
+  padding: 1rem;
+  background-color: #f3e8e8;
+  border-radius: 20px;
+}
+
+.order-list li {
+  list-style: none;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
+.order-list li > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.order-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.order-img {
+  display: flex;
+  align-items: start;
+}
+
+.order-img div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.6rem;
+}
+
+.order-quantity,
+.order-item-price {
+  font-size: 0.9rem;
+  color: rgb(88, 88, 88);
+  font-weight: bold;
+  margin-top: 0.3rem;
+}
+
+.order-item-price {
+  color: #333;
+}
+
+.order-img img {
+  width: 100px;
+  height: 70px;
+  border-radius: 10px;
+}
+
+.voucher {
+  margin: 1rem auto;
+  width: 100%;
+  position: relative;
+}
+
+.voucher input[type="text"] {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgb(207, 205, 205);
+  border-radius: 70px;
+  height: 40px;
+  width: 100%;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.voucher-apply-btn {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border: none;
+  font-size: 0.6rem;
+  color: #fff;
+  font-weight: bold;
+  background-color: var(--main-color);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.voucher-apply-btn:hover {
+  transform: scale(0.9);
+}
+
+.bill-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.bill-row span {
+  color: #757474;
+  font-weight: bold;
+}
+
+.green-txt {
+  color: rgb(17, 155, 17);
+}
+
+.total-price {
+  font-size: 1.4rem;
+  border: 1px solid rgb(207, 205, 205);
+  border-left: none;
+  border-right: none;
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+}
+
+.delivery-info {
+  font-size: 0.9rem;
+  color: grey;
+  display: block;
+  margin-top: 0.4rem;
+}

@@ -1,0 +1,125 @@
+.address-form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.grid-form input[type="number"],
+.grid-form input[type="text"] {
+  width: 100%;
+  height: 45px;
+  border: 1px solid rgb(206, 206, 206);
+  border-radius: 10px;
+  font-size: 1.3rem;
+  padding-left: 0.5rem;
+  outline: none;
+}
+
+.full-width-input {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.address-form input[type="radio"] {
+  opacity: 0;
+}
+
+.address-form input[type="radio"]:checked + label,
+.address-form input[type="radio"]:checked + label span {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.address-form input[type="radio"]:checked + label span {
+  color: #fefefe;
+}
+
+.delivery-opts-wrap {
+  display: block;
+  border: 1px solid #c2c1c1;
+  padding: 0.8rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: -1rem;
+  border-radius: 10px;
+  color: #333;
+  text-align: center;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.delivery-opts-wrap span {
+  display: block;
+  font-weight: normal;
+  color: #858282;
+  font-size: 0.9rem;
+}
+
+.delivery-opts-wrap:hover {
+  transform: scale(1.05);
+}
+
+.prev-btn {
+  border: 1px solid #adadad;
+  padding: 0.8rem 2rem;
+  color: #333;
+  position: relative;
+  outline: none;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  transform: translate(-5px, -5px);
+  transition: all 0.6s;
+  box-shadow: 10px 10px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.prev-btn i {
+  margin-right: 1rem;
+}
+
+.next-btn i {
+  margin-left: 1rem;
+}
+
+.btns-wrap {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-next {
+  margin: 2rem 0;
+  flex-direction: row-reverse;
+}
+
+.next-btn {
+  border: 1px solid #df4550;
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.prev-btn input {
+  color: #333;
+}
+
+.prev-btn i {
+  color: #333;
+}
+
+.btn-wrap {
+  margin-top: 1rem;
+}

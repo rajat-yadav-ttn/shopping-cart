@@ -21,22 +21,21 @@ class Home extends Component {
     this.setState({ toSearch: this.state.searchInput });
   };
 
-  handleAddCart = (id) => {
-    this.props.addToCart(id);
+  sort = () => {
+    return async () => this.props.sortProducts();
   };
 
   render() {
-    console.log(this.props.addedItems);
     return (
       <div>
-        <div className="showcase">
+        <header className="showcase">
           <div className="container center">
             <div className="showcase-content">
               <p className="tagline">
                 Whatever you’ve got in mind, we’ve got inside.
               </p>
               <div className="bottom-line"></div>
-              <form className="input-container">
+              <form className="search-form input-container">
                 <input
                   type="text"
                   placeholder="Search"
@@ -47,16 +46,18 @@ class Home extends Component {
                 <input
                   type="submit"
                   value="Search"
-                  className="search-btn main-btn search-btn"
+                  className="main-btn search-btn"
                 />
               </form>
             </div>
           </div>
-        </div>
+        </header>
         <div className="product-container">
           <section className="section section-products-list">
             <div className="container">
               <div className="center heading">Products</div>
+
+              <button onClick={this.sort()}>sort</button>
 
               <div className="three-col-grid">
                 {this.props.items.map((i) => {
@@ -68,7 +69,8 @@ class Home extends Component {
                       rating={i.rating}
                       category={i.category}
                       img={i.img}
-                      handleAddCart={() => this.handleAddCart(i.id)}
+                      quantity={i.quantity}
+                      handleAddCart={() => this.props.addToCart(i.id)}
                       inCart={i.inCart}
                       addQuantity={() => this.addQuantity(i.id)}
                       decQuantity={() => this.decQuantity(i.id)}
@@ -96,6 +98,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => {
       dispatch(actions.addToCart(id));
+    },
+    sortProducts: () => {
+      dispatch(actions.sortProducts());
     },
   };
 };

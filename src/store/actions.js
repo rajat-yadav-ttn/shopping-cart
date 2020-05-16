@@ -25,3 +25,15 @@ export const decQuantity = (id) => {
     id,
   };
 };
+
+export const sortProducts = () => {
+  return {
+    type: "SORT",
+  };
+};
+
+export const checkItemCart = (id) => {
+  return {
+    type: "CHECK_CART",
+  };
+};
