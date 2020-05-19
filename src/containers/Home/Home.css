@@ -37,9 +37,10 @@
 }
 
 .tagline {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: bold;
   padding-bottom: 2px;
+  color: #000;
 }
 
 .bottom-line {
@@ -53,7 +54,7 @@
   height: 45px;
   border-radius: 10px;
   padding-left: 0.5rem;
-  border: 1px solid #efefef;
+  border: none;
   font-size: 1.2rem;
   outline: none;
 }
@@ -66,7 +67,6 @@
 }
 
 .search-btn {
-  font-size: 1rem;
   cursor: pointer;
   background: var(--main-color);
   border: none;
@@ -81,7 +81,7 @@
 }
 
 .heading + div {
-  margin: 2rem 0;
+  margin: 0.6rem 0;
 }
 
 .three-col-grid {

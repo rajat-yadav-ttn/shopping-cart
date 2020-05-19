@@ -23,6 +23,8 @@
 .product-item {
   border-radius: 10px;
   border: 1px solid #e4d1d1;
+  position: relative;
+  overflow: hidden;
 }
 
 .product-item:hover {
@@ -32,10 +34,6 @@
 
 .product-info {
   padding: 0.5rem;
-  position: relative;
-}
-
-.add-btn-wrapper {
   position: relative;
 }
 
@@ -81,6 +79,13 @@ a.check-btn {
   transform: scale(1.2);
 }
 
+.add-btn div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .price {
   font-size: 1.2rem;
 }
@@ -97,15 +102,27 @@ a.check-btn {
   content: "Added to cart";
   background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
-  padding: 1px 4px;
+  padding: 1px 5px;
   font-size: 0.8rem;
-  width: 100px;
+  width: 80px;
   position: absolute;
   top: 4px;
   right: 100%;
   border-radius: 10px;
   animation: addedMsg 0.4s;
   transform-origin: 100% 100%;
+}
+
+.add-btn {
+  position: absolute;
+  bottom: -25px;
+  right: -25px;
+  transition: all 0.4s;
+}
+
+.product-item:hover .add-btn {
+  bottom: 10px;
+  right: 10px;
 }
 
 @keyframes addedMsg {

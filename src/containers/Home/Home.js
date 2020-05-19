@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import "./Home.css";
-
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import ProductItem from "../../components/ProductItem/ProductItem";
+// import ProductItem from "../../components/ProductItem/ProductItem";
 
-import * as actions from "../../store/actions.js";
-// import ProductDescription from "../../components/ProductDescription/ProductDescription";
+import ProductList from "../../components/ProductList/ProductList";
 
 class Home extends Component {
   state = {
@@ -25,7 +24,19 @@ class Home extends Component {
     return async () => this.props.sortProducts();
   };
 
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.searchInput(this.searchInput.value);
+  };
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Search" + this.searchInput.value);
+    this.props.history.push(`/search/${this.searchInput.value}`);
+  };
+
   render() {
+    console.log(this.props.addedItems);
     return (
       <div>
         <header className="showcase">
@@ -35,12 +46,17 @@ class Home extends Component {
                 Whatever you’ve got in mind, we’ve got inside.
               </p>
               <div className="bottom-line"></div>
-              <form className="search-form input-container">
+              <form
+                onSubmit={this.handleFormSubmit}
+                className="search-form input-container"
+              >
                 <input
                   type="text"
                   placeholder="Search"
-                  value={this.state.searchInput}
-                  onChange={this.handleSearchInput}
+                  // value={this.state.searchInput}
+                  // onChange={this.handleSearchInput}
+                  onChange={this.showSearch}
+                  ref={(input) => (this.searchInput = input)}
                   required
                 />
                 <input
@@ -57,27 +73,7 @@ class Home extends Component {
             <div className="container">
               <div className="center heading">Products</div>
 
-              <button onClick={this.sort()}>sort</button>
-
-              <div className="three-col-grid">
-                {this.props.items.map((i) => {
-                  return (
-                    <ProductItem
-                      key={i.id}
-                      name={i.name}
-                      price={i.price}
-                      rating={i.rating}
-                      category={i.category}
-                      img={i.img}
-                      quantity={i.quantity}
-                      handleAddCart={() => this.props.addToCart(i.id)}
-                      inCart={i.inCart}
-                      addQuantity={() => this.addQuantity(i.id)}
-                      decQuantity={() => this.decQuantity(i.id)}
-                    />
-                  );
-                })}
-              </div>
+              <ProductList />
             </div>
           </section>
         </div>
@@ -90,19 +86,8 @@ const mapStateToProps = (state) => {
   return {
     items: state.items,
     addedItems: state.addedItems,
-    id: state.id,
+    search: state.search,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (id) => {
-      dispatch(actions.addToCart(id));
-    },
-    sortProducts: () => {
-      dispatch(actions.sortProducts());
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(withRouter(Home));

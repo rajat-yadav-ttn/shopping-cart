@@ -1,0 +1,20 @@
+.order-complete {
+  padding: 7rem 0;
+}
+
+.order-complete h2 {
+  font-size: 2.5rem;
+}
+
+.complete-msg {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.order-complete .continue-shop-btn {
+}
+
+p {
+  color: rgb(97, 96, 96);
+  margin: 2rem 0 3rem 0;
+}

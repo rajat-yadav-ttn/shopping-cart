@@ -103,10 +103,7 @@ class ProductDescription extends Component {
                         ADD TO CART
                       </button>
                     ) : (
-                      <Link
-                        to="/shipping/your-cart"
-                        className="add-to-cart-btn"
-                      >
+                      <Link to="/your-cart" className="add-to-cart-btn">
                         <i className="fa fa-arrow-right"></i>
                         GO TO CART
                       </Link>

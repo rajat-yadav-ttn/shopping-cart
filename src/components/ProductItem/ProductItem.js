@@ -10,7 +10,7 @@ const ProductItem = (props) => {
 
   const link = props.name.toLowerCase();
 
-  console.log(props.quantity);
+  // console.log(props.quantity);
   return (
     <div className="product-item">
       <div className="product-container">
@@ -28,12 +28,12 @@ const ProductItem = (props) => {
         </Link>
         <div className="add-btn-wrapper">
           {props.quantity !== 0 ? (
-            <Link to="shipping/your-cart" className="check-btn">
+            <Link to="/your-cart" className="check-btn">
               <i className="fa fa-check check-icon"></i>
             </Link>
           ) : (
             <button onClick={props.handleAddCart} className="add-btn">
-              +
+              <div>+</div>
             </button>
           )}
         </div>

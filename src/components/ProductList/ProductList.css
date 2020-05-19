@@ -1,0 +1,71 @@
+.sort-btns-container {
+  display: flex;
+  align-items: center;
+  margin: 0 0 2rem 0;
+  justify-content: flex-end;
+}
+
+ul li {
+  list-style: none;
+}
+
+.sort-btns-container span {
+  color: #333;
+  margin: 0 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.sort-btns-container > div {
+  position: relative;
+}
+
+.sort-container {
+  position: absolute;
+  border: 1px solid #ababab;
+  z-index: 1;
+  background-color: #fff;
+  width: 130px;
+  display: none;
+}
+
+.sort-container::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 40%;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+}
+
+.sort-container ul li {
+  padding: 0.3rem 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sort-by-btn {
+  border: 1px solid var(--main-color);
+  font-size: 1rem;
+  background-color: #fff;
+  padding: 0.1rem 0.5rem;
+  border-radius: 30px;
+  margin: 0 0.3rem;
+  transition: all 0.5s;
+}
+
+.sort-by-btn:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.sort-by-btn:hover + .sort-container,
+.sort-container:hover {
+  display: block;
+}
+
+.sort-container ul li:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--main-color);
+}

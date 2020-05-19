@@ -80,7 +80,18 @@ class OrderSummary extends Component {
               {this.props.addedItems.length === 0 ? (
                 0
               ) : (
-                <div> {this.props.delivery === 0 ? "FREE" : "Rs. 99"}</div>
+                <div>
+                  <span>
+                    {" "}
+                    {this.props.delivery === 0
+                      ? "FREE"
+                      : `Rs. ${this.props.delivery}`}
+                  </span>
+
+                  {this.props.deliveryAddValue !== "0" ? (
+                    <span>+ {this.props.deliveryAddValue}</span>
+                  ) : null}
+                </div>
               )}
             </h4>
           </div>
@@ -103,8 +114,9 @@ const mapStateToProps = (state) => {
   return {
     subTotal: state.subTotal,
     addedItems: state.addedItems,
-    delivery: state.delivery,
     total: state.total,
+    delivery: state.delivery,
+    deliveryAddValue: state.deliveryAddValue,
   };
 };
 

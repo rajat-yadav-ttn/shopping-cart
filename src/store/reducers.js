@@ -8,9 +8,13 @@ const initialState = {
   quantity: 0,
   inCart: false,
   shipping: 0,
-  delivery: 99,
+  delivery: 10,
   total: 0,
   itemToRemove: {},
+  search: "",
+  initialItems: Products,
+  deliveryAddValue: 0,
+  newTotal: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -25,7 +29,7 @@ const reducer = (state = initialState, action) => {
             ? 0
             : state.subTotal + addedItem.price >= 500
             ? 0
-            : 99;
+            : 10;
 
         return {
           ...state,
@@ -37,7 +41,7 @@ const reducer = (state = initialState, action) => {
         addedItem.quantity = 1;
         addedItem.inCart = true;
         let newsubTotal = state.subTotal + addedItem.price;
-        let deliveryCharges = newsubTotal >= 500 ? 0 : 99;
+        let deliveryCharges = newsubTotal >= 500 ? 0 : 10;
         return {
           ...state,
           addedItems: [...state.addedItems, addedItem],
@@ -52,7 +56,7 @@ const reducer = (state = initialState, action) => {
       addedItem = state.items.find((item) => item.id === action.id);
       addedItem.quantity += 1;
       let addsubTotal = state.subTotal + addedItem.price;
-      let deliveryChargesAdd = addsubTotal >= 500 ? 0 : 99;
+      let deliveryChargesAdd = addsubTotal >= 500 ? 0 : 10;
       return {
         ...state,
         quantity: (state.quantity += 1),
@@ -65,7 +69,7 @@ const reducer = (state = initialState, action) => {
       addedItem = state.items.find((item) => item.id === action.id);
       addedItem.quantity -= 1;
       let decsubTotal = state.subTotal - addedItem.price;
-      let deliveryChargesDec = decsubTotal >= 500 ? 0 : 99;
+      let deliveryChargesDec = decsubTotal >= 500 ? 0 : 10;
       return {
         ...state,
         quantity: (state.quantity -= 1),
@@ -81,8 +85,9 @@ const reducer = (state = initialState, action) => {
       );
       let remsubTotal =
         state.subTotal - itemToRemove.price * itemToRemove.quantity;
+
       itemToRemove.quantity = 0;
-      let deliveryChargesRem = remsubTotal >= 500 ? 0 : 99;
+      let deliveryChargesRem = remsubTotal >= 500 ? 0 : 10;
       deliveryChargesRem = updatedItems.length === 0 ? 0 : deliveryChargesRem;
       return {
         ...state,
@@ -93,13 +98,67 @@ const reducer = (state = initialState, action) => {
         itemToRemove: itemToRemove,
       };
 
-    case "SORT":
-      let sorted = state.items.sort((prev, curr) => prev.price - curr.price);
+    case "SORT_LOW_HIGH_PRICE":
+      let sortedPrice = state.items.sort(
+        (prev, curr) => prev.price - curr.price
+      );
       return {
         ...state,
-        items: sorted,
+        items: [...sortedPrice],
       };
 
+    case "SORT_LOW_HIGH_RATING":
+      let sortedRating = state.items.sort(
+        (prev, curr) => prev.rating - curr.rating
+      );
+      return {
+        ...state,
+        items: [...sortedRating],
+      };
+
+    case "SORT_HIGH_LOW_PRICE":
+      let sortedPriceHL = state.items.sort(
+        (prev, curr) => curr.price - prev.price
+      );
+      return {
+        ...state,
+        items: [...sortedPriceHL],
+      };
+
+    case "SORT_HIGH_LOW_RATING":
+      let sortedRatingHL = state.items.sort(
+        (prev, curr) => curr.rating - prev.rating
+      );
+      return {
+        ...state,
+        items: [...sortedRatingHL],
+      };
+
+    case "SEARCH":
+      return {
+        ...state,
+        search: action.inputValue,
+      };
+
+    case "EMPTY_CART":
+      state.addedItems.forEach((i) => {
+        i.quantity = 0;
+      });
+      return {
+        ...state,
+        addedItems: [],
+        subTotal: 0,
+        total: 0,
+      };
+
+    case "DELIVERY_ADD":
+      let addedVal = parseInt(action.value, 10);
+      let newDelivery = state.delivery + addedVal;
+      return {
+        ...state,
+        // total: newTotal,
+        delivery: newDelivery,
+      };
     default:
       return state;
   }

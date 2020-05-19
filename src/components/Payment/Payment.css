@@ -1,9 +1,13 @@
 .payment-container {
   border: 1px solid rgb(221, 221, 221);
   box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 1rem;
   border-radius: 10px;
   margin: 1.5rem 0;
+}
+
+.payment-container > * {
+  color: grey;
 }
 
 .payment-form {
@@ -25,11 +29,6 @@
 .paypal-content {
   display: flex;
   width: 94%;
-  margin: 0 auto;
-}
-
-.paypal-content i {
-  color: grey;
 }
 
 .card-input {
@@ -42,4 +41,8 @@
   right: 8px;
   font-size: 1.4rem;
   color: grey;
+}
+
+.payment-container input:checked + * {
+  color: #000;
 }

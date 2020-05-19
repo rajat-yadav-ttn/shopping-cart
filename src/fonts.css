@@ -1,12 +1,13 @@
-@font-face {
+/* @font-face {
   font-family: "FSM-R";
   src: url("./fonts/FSM-R.otf") format("opentype");
-}
+} */
+
 @font-face {
-  font-family: "PS";
-  src: url("./fonts/PeaceSans.otf") format("opentype");
+  font-family: "Geomanist-R";
+  src: url("./fonts/geomanist-R.ttf") format("truetype");
 }
 
 * {
-  font-family: "FSM-R";
+  font-family: "Geomanist-R";
 }

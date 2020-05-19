@@ -52,7 +52,7 @@ class Navbar extends Component {
           </li>
           <li>
             <NavLink
-              to="/shipping/your-cart"
+              to="/your-cart"
               activeClassName="active-link"
               className="cart-icon"
             >
