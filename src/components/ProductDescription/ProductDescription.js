@@ -24,18 +24,23 @@ const Review = (props) => {
     </div>
   );
 };
-
 class ProductDescription extends Component {
   state = {
+    product: [],
     galleryImg: [],
     thumbImg: this.props.items.img,
+    showModels: false,
   };
 
   componentDidMount() {
     let product = this.props.items.find((i) => {
       return this.props.match.params.id === i.name.toLowerCase();
     });
-    this.setState({ thumbImg: product.img, galleryImg: product.gallery });
+
+    this.setState({
+      thumbImg: product.img,
+      galleryImg: product.gallery,
+    });
   }
 
   handleImgView = (id) => {
@@ -43,17 +48,24 @@ class ProductDescription extends Component {
     this.setState({ thumbImg: thumbImg.imgUrl });
   };
 
+  handleModelSelect = (id) => {
+    console.log(id);
+    // let selectedModel = this.state.product.find((i) => i.modelId === id);
+  };
+
   render() {
     const product = this.props.items.find((i) => {
       return this.props.match.params.id === i.name.toLowerCase();
     });
 
-    console.log(this.props.match);
-
     let ratings = [];
     for (let i = 0; i < product.rating; i++) {
       ratings.push("grey");
     }
+
+    let modelSelected = product.model.find((i) => {
+      return this.props.selectedModel === i.modelId;
+    });
 
     return (
       <div>
@@ -110,6 +122,17 @@ class ProductDescription extends Component {
                     )}
                   </div>
                 </div>
+
+                {/* <div>
+                  <form>
+                    <select>
+                      {product.model.map(i=>{
+
+                      })}
+                    </select>
+                  </form>
+                </div> */}
+
                 <div className="product-description">
                   <h3>Product Description</h3>
                   <p>
@@ -152,6 +175,8 @@ const mapStateToProps = (state) => {
     addedItems: state.addedItems,
     items: state.items,
     subTotal: state.subTotal,
+    selectedModel: state.selectedModel,
+    isSelected: state.isSelected,
   };
 };
 
@@ -159,6 +184,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => {
       dispatch(actions.addToCart(id));
+    },
+
+    modelSelect: (id) => {
+      dispatch(actions.modelSelect(id));
     },
   };
 };

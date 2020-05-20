@@ -63,6 +63,13 @@ export const deliveryAdd = (value) => {
   };
 };
 
+export const modelSelect = (id) => {
+  return {
+    type: "MODEL_SELECT",
+    id,
+  };
+};
+
 export const searchValue = (inputValue) => (dispatch) => {
   dispatch({
     type: "SEARCH",

@@ -15,6 +15,8 @@ const initialState = {
   initialItems: Products,
   deliveryAddValue: 0,
   newTotal: 0,
+  selectedModel: 0,
+  isSelected: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -159,6 +161,15 @@ const reducer = (state = initialState, action) => {
         // total: newTotal,
         delivery: newDelivery,
       };
+
+    case "MODEL_SELECT":
+      let id = action.id;
+
+      return {
+        ...state,
+        selectedModel: id,
+      };
+
     default:
       return state;
   }

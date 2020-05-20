@@ -9,6 +9,20 @@
     "quantity": 0,
     "inCart": false,
     "discount": 30,
+    "model": [
+      {
+        "modelId": 1,
+        "modelName": "A"
+      },
+      {
+        "modelId": 2,
+        "modelName": "B"
+      },
+      {
+        "modelId": 3,
+        "modelName": "C"
+      }
+    ],
     "reviews": [
       {
         "index": 1,
@@ -50,6 +64,20 @@
     "quantity": 0,
     "inCart": false,
     "discount": 10,
+    "model": [
+      {
+        "modelId": 1,
+        "modelName": "A"
+      },
+      {
+        "modelId": 2,
+        "modelName": "B"
+      },
+      {
+        "modelId": 3,
+        "modelName": "C"
+      }
+    ],
     "reviews": [
       {
         "index": 1,
@@ -84,6 +112,20 @@
     "quantity": 0,
     "inCart": false,
     "discount": 0,
+    "model": [
+      {
+        "modelId": 1,
+        "modelName": "A"
+      },
+      {
+        "modelId": 2,
+        "modelName": "B"
+      },
+      {
+        "modelId": 3,
+        "modelName": "C"
+      }
+    ],
     "reviews": [
       {
         "index": 1,
@@ -118,6 +160,20 @@
     "quantity": 0,
     "inCart": false,
     "discount": 40,
+    "model": [
+      {
+        "modelId": 1,
+        "modelName": "A"
+      },
+      {
+        "modelId": 2,
+        "modelName": "B"
+      },
+      {
+        "modelId": 3,
+        "modelName": "C"
+      }
+    ],
     "reviews": [
       {
         "index": 1,
@@ -152,6 +208,20 @@
     "quantity": 0,
     "inCart": false,
     "discount": 10,
+    "model": [
+      {
+        "modelId": 1,
+        "modelName": "A"
+      },
+      {
+        "modelId": 2,
+        "modelName": "B"
+      },
+      {
+        "modelId": 3,
+        "modelName": "C"
+      }
+    ],
     "reviews": [
       {
         "index": 1,
@@ -186,6 +256,34 @@
     "quantity": 0,
     "inCart": false,
     "discount": 0,
+    "model": [
+      {
+        "modelId": 1,
+        "modelName": "A"
+      },
+      {
+        "modelId": 2,
+        "modelName": "B"
+      },
+      {
+        "model": [
+          {
+            "modelId": 1,
+            "modelName": "A"
+          },
+          {
+            "modelId": 2,
+            "modelName": "B"
+          },
+          {
+            "modelId": 3,
+            "modelName": "C"
+          }
+        ],
+        "modelId": 3,
+        "modelName": "C"
+      }
+    ],
     "reviews": [
       {
         "index": 1,
