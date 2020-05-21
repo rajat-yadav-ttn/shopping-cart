@@ -26,17 +26,20 @@ const ProductItem = (props) => {
             })}
           </div>
         </Link>
-        <div className="add-btn-wrapper">
-          {props.quantity !== 0 ? (
-            <Link to="/your-cart" className="check-btn">
-              <i className="fa fa-check check-icon"></i>
-            </Link>
-          ) : (
-            <button onClick={props.handleAddCart} className="add-btn">
-              <div>+</div>
-            </button>
-          )}
-        </div>
+
+        {props.showAddBtns ? (
+          <div className="add-btn-wrapper">
+            {props.quantity !== 0 ? (
+              <Link to="/your-cart" className="check-btn">
+                <i className="fa fa-check check-icon"></i>
+              </Link>
+            ) : (
+              <button onClick={props.handleAddCart} className="add-btn">
+                <div>+</div>
+              </button>
+            )}
+          </div>
+        ) : null}
       </div>
     </div>
   );

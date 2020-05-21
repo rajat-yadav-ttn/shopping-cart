@@ -5,9 +5,7 @@ import "./ProductList.css";
 import * as actions from "../../store/actions.js";
 
 class ProductList extends Component {
-  state = {
-    showPriceSort: false,
-  };
+  state = {};
   sortByPriceLowHigh = () => {
     this.props.sortByPriceLowHigh();
   };
@@ -61,8 +59,7 @@ class ProductList extends Component {
                 quantity={i.quantity}
                 handleAddCart={() => this.props.addToCart(i.id)}
                 inCart={i.inCart}
-                addQuantity={() => this.addQuantity(i.id)}
-                decQuantity={() => this.decQuantity(i.id)}
+                showAddBtns={true}
               />
             );
           })}
@@ -76,7 +73,6 @@ const mapStateToProps = (state) => {
   return {
     items: state.items,
     addedItems: state.addedItems,
-    sortedItems: state.sortedItems,
   };
 };
 

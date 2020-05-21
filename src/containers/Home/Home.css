@@ -84,12 +84,6 @@
   margin: 0.6rem 0;
 }
 
-.three-col-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
-}
-
 .no-result {
   text-align: center;
   position: absolute;
@@ -102,7 +96,16 @@ img {
 }
 
 @media (max-width: 768px) {
+  .search-form {
+    width: 90%;
+  }
   form {
     width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  .search-form {
+    width: 100%;
   }
 }

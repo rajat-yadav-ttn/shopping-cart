@@ -6,13 +6,11 @@ import { connect } from "react-redux";
 
 import ProductList from "../../components/ProductList/ProductList";
 
+// import * as actions from "../../store/actions.js";
+
 class Home extends Component {
   state = {
     searchInput: "",
-  };
-
-  handleSearchInput = (event) => {
-    this.setState({ searchInput: event.target.value });
   };
 
   handleSearchAction = (e) => {
@@ -20,23 +18,17 @@ class Home extends Component {
     this.setState({ toSearch: this.state.searchInput });
   };
 
-  sort = () => {
-    return async () => this.props.sortProducts();
-  };
-
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.searchInput(this.searchInput.value);
-  };
-
-  handleFormSubmit = (e) => {
-    e.preventDefault();
-    console.log("Search" + this.searchInput.value);
-    this.props.history.push(`/search/${this.searchInput.value}`);
+    this.props.history.push({
+      pathname: "/search-results",
+      search: "",
+      state: this.state.searchInput,
+    });
+    console.log("Search " + this.state.searchInput);
   };
 
   render() {
-    console.log(this.props.addedItems);
     return (
       <div>
         <header className="showcase">
@@ -55,8 +47,10 @@ class Home extends Component {
                   placeholder="Search"
                   // value={this.state.searchInput}
                   // onChange={this.handleSearchInput}
-                  onChange={this.showSearch}
-                  ref={(input) => (this.searchInput = input)}
+                  onChange={(e) =>
+                    this.setState({ searchInput: e.target.value })
+                  }
+                  value={this.state.searchInput}
                   required
                 />
                 <input
@@ -90,4 +84,9 @@ const mapStateToProps = (state) => {
   };
 };
 
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     searchValue: (value) => dispatch(actions.searchValue(value)),
+//   };
+// };
 export default connect(mapStateToProps)(withRouter(Home));

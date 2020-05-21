@@ -19,7 +19,12 @@ class Payment extends Component {
           <ul className="cart-nav">
             <li className="cart-nav-item cart-nav-active">1. Shopping Cart</li>
             <li className="cart-nav-item cart-nav-active">
-              2. Shipping Details
+              <Link
+                to="/shipping-details"
+                className="cart-nav-item cart-nav-active"
+              >
+                2. Shipping Details
+              </Link>
             </li>
             <li className="cart-nav-item cart-nav-active">3. Payment</li>
           </ul>
@@ -27,9 +32,16 @@ class Payment extends Component {
             <h3>PAYMENT</h3>
 
             <div className="payment-method">
+              <input
+                type="radio"
+                name="payment-option"
+                id="card"
+                className="pay-radio"
+              />
               <div className="payment-container">
-                <input type="radio" name="payment-option" />
-                <h3 className="pay-method">Credit Card</h3>
+                <label className="pay-method" for="card">
+                  Credit Card
+                </label>
                 <form className=" grid-form">
                   <div className="payment-form">
                     <div className="card-input">
@@ -50,9 +62,16 @@ class Payment extends Component {
             </div>
 
             <div className="payment-method">
+              <input
+                type="radio"
+                name="payment-option"
+                id="paypal"
+                className="pay-radio"
+              />
               <div className="payment-container">
-                <input type="radio" name="payment-option" />
-                <h3 className="pay-method">Paypal</h3>
+                <label className="pay-method" for="paypal">
+                  Paypal
+                </label>
                 <div className="paypal-content">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.

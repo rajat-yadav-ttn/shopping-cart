@@ -9,6 +9,12 @@
   padding: 0 5%;
 }
 
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -119,4 +125,21 @@ a.your-cart-btn {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.menu-bar {
+  display: none;
+}
+
+.menu-bar i {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+  }
+  .menu-bar {
+    display: block;
+  }
 }

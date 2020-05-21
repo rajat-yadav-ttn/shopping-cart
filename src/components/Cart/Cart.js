@@ -25,7 +25,11 @@ class Cart extends Component {
         <div>
           <ul className="cart-nav">
             <li className="cart-nav-item cart-nav-active">1. Shopping Cart</li>
-            <li className="cart-nav-item">2. Shipping Details</li>
+            <li className="cart-nav-item">
+              <Link to="/shipping-details" className="cart-nav-item">
+                2. Shipping Details
+              </Link>
+            </li>
             <li className="cart-nav-item">3. Payment</li>
           </ul>
           <div className="cart-container">

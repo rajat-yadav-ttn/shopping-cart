@@ -129,6 +129,28 @@
   margin: 0 1rem;
 }
 
+.cart-nav {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.cart-nav li {
+  list-style: none;
+  display: inline;
+  margin: 0 2rem;
+}
+
+.cart-nav-item {
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: rgba(161, 161, 161, 1);
+}
+.cart-nav-active {
+  color: var(--main-color);
+  font-size: 1.3rem;
+}
+
 @keyframes closeBtn {
   from {
     width: 0;

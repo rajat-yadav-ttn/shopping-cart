@@ -69,3 +69,26 @@ ul li {
   background: rgba(0, 0, 0, 0.1);
   color: var(--main-color);
 }
+
+.three-col-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .three-col-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sort-btns-container {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .three-col-grid {
+    grid-template-columns: 1fr;
+  }
+}

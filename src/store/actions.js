@@ -63,10 +63,10 @@ export const deliveryAdd = (value) => {
   };
 };
 
-export const modelSelect = (id) => {
+export const Voucher = (value) => {
   return {
-    type: "MODEL_SELECT",
-    id,
+    type: "VOUCHER",
+    value,
   };
 };
 

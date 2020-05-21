@@ -42,17 +42,25 @@ class AddressDetails extends Component {
   };
 
   render() {
-    // console.log(this.props.deliveryAddValue);
-    console.log(this.props.nt);
+    console.log("new total " + this.props.newTotal);
     return (
       <div className="shipping-container">
         <div>
           <ul className="cart-nav">
-            <li className="cart-nav-item cart-nav-active">1. Shopping Cart</li>
+            <li className=" cart-nav-active">
+              <Link to="/your-cart" className="cart-nav-item cart-nav-active">
+                1. Shopping Cart
+              </Link>
+            </li>
+
             <li className="cart-nav-item cart-nav-active">
               2. Shipping Details
             </li>
-            <li className="cart-nav-item">3. Payment</li>
+            <li>
+              <Link to="/payment" className="cart-nav-item">
+                3. Payment
+              </Link>
+            </li>
           </ul>
           <div>
             <h3>SHIPPING DETAILS</h3>
@@ -161,9 +169,6 @@ class AddressDetails extends Component {
                   value="Go to Payment"
                   className="next-btn"
                 />
-                {/* <Link onClick={this.handleForm} className="next-btn">
-                  Go To Payment
-                </Link> */}
               </div>
             </form>
           </div>
@@ -179,7 +184,7 @@ class AddressDetails extends Component {
 const mapStateToProps = (state) => {
   return {
     deliveryAddValue: state.deliveryAddValue,
-    newTotal: state.newTotal,
+    delivery: state.delivery,
   };
 };
 

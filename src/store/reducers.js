@@ -17,6 +17,8 @@ const initialState = {
   newTotal: 0,
   selectedModel: 0,
   isSelected: null,
+  voucher: "",
+  discount: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -155,19 +157,23 @@ const reducer = (state = initialState, action) => {
 
     case "DELIVERY_ADD":
       let addedVal = parseInt(action.value, 10);
-      let newDelivery = state.delivery + addedVal;
       return {
         ...state,
-        // total: newTotal,
-        delivery: newDelivery,
+        deliveryAddValue: addedVal,
       };
 
-    case "MODEL_SELECT":
-      let id = action.id;
-
+    case "VOUCHER":
+      let voucher = action.value;
+      let discount;
+      if (voucher === "20OFF") {
+        discount = 20;
+      } else {
+        discount = 0;
+      }
       return {
         ...state,
-        selectedModel: id,
+        voucher: voucher,
+        discount: discount,
       };
 
     default:

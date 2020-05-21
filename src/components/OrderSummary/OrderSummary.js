@@ -2,19 +2,29 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import "./OrderSummary.css";
-
+import * as actions from "../../store/actions";
 class OrderSummary extends Component {
   state = {
     voucher: "",
+    totalAmount: 0,
   };
 
-  inputHandler = (e) => {
+  componentDidMount() {
+    this.setState({ totalAmount: this.props.total });
+  }
+
+  voucherInput = (e) => {
     this.setState({ voucher: e.target.value });
   };
-  render() {
-    let discount = 0;
 
-    // let total = this.props.subTotal + this.props.delivery - discount;
+  voucherSubmit = (e) => {
+    e.preventDefault();
+    this.props.Voucher(this.state.voucher);
+  };
+
+  render() {
+    console.log("V " + this.props.voucher);
+
     return (
       <div className="order-summary-container">
         <h3 className="center">Order Summary</h3>
@@ -44,11 +54,12 @@ class OrderSummary extends Component {
           })}
         </ul>
         <div className="bill-container">
+          <div className="voucher-msg">Available Voucher: 20OFF</div>
           <div className="voucher">
-            <form>
+            <form onSubmit={this.voucherSubmit}>
               <input
                 type="text"
-                onChange={this.inputHandler}
+                onChange={this.voucherInput}
                 value={this.state.voucher}
                 placeholder="Have a Voucher?"
               />
@@ -97,12 +108,17 @@ class OrderSummary extends Component {
           </div>
           <div className="bill-row">
             <span>DISCOUNT</span>
-            <h4 className="green-txt">-Rs. {discount}</h4>
+            <h4 className="green-txt">Rs. {this.props.discount} OFF</h4>
           </div>
 
           <div className="total-price bill-row">
             <span>TOTAL</span>
-            <h4>Rs.{this.props.total}</h4>
+            <h4>
+              Rs.
+              {this.props.total +
+                this.props.deliveryAddValue -
+                this.props.discount}
+            </h4>
           </div>
         </div>
       </div>
@@ -117,7 +133,17 @@ const mapStateToProps = (state) => {
     total: state.total,
     delivery: state.delivery,
     deliveryAddValue: state.deliveryAddValue,
+    voucher: state.voucher,
+    discount: state.discount,
   };
 };
 
-export default connect(mapStateToProps)(OrderSummary);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    Voucher: (value) => {
+      dispatch(actions.Voucher(value));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderSummary);

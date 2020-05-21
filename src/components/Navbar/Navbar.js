@@ -6,12 +6,23 @@ import "../../fonts.css";
 import { connect } from "react-redux";
 
 class Navbar extends Component {
-  state = {};
+  state = {
+    showDrawer: false,
+  };
 
+  drawerOpen = () => {
+    this.setState({ showDrawer: true });
+  };
+
+  drawerClose = () => {
+    this.setState({ showDrawer: false });
+  };
   render() {
     return (
       <nav className="navbar">
-        <h1>LOGO</h1>
+        <NavLink className="logo" to="/">
+          LOGO
+        </NavLink>
         <ul className="nav-list">
           <li>
             <NavLink
@@ -69,6 +80,11 @@ class Navbar extends Component {
             </NavLink>
           </li>
         </ul>
+        <div className="menu-bar">
+          <button onClick={this.drawerOpen}>
+            <i className="fa fa-bars"></i>
+          </button>
+        </div>
       </nav>
     );
   }

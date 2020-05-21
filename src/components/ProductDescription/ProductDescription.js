@@ -48,10 +48,10 @@ class ProductDescription extends Component {
     this.setState({ thumbImg: thumbImg.imgUrl });
   };
 
-  handleModelSelect = (id) => {
-    console.log(id);
-    // let selectedModel = this.state.product.find((i) => i.modelId === id);
-  };
+  // handleModelSelect = (id) => {
+  //   console.log(id);
+  //   // let selectedModel = this.state.product.find((i) => i.modelId === id);
+  // };
 
   render() {
     const product = this.props.items.find((i) => {
@@ -63,9 +63,9 @@ class ProductDescription extends Component {
       ratings.push("grey");
     }
 
-    let modelSelected = product.model.find((i) => {
-      return this.props.selectedModel === i.modelId;
-    });
+    // let modelSelected = product.model.find((i) => {
+    //   return this.props.selectedModel === i.modelId;
+    // });
 
     return (
       <div>
@@ -122,16 +122,6 @@ class ProductDescription extends Component {
                     )}
                   </div>
                 </div>
-
-                {/* <div>
-                  <form>
-                    <select>
-                      {product.model.map(i=>{
-
-                      })}
-                    </select>
-                  </form>
-                </div> */}
 
                 <div className="product-description">
                   <h3>Product Description</h3>
