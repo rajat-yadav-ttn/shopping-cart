@@ -1,0 +1,13 @@
+.no-results-container {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.no-results {
+  margin: 2rem 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}

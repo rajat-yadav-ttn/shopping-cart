@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import "../../fonts.css";
 import { connect } from "react-redux";
+import Drawer from "./Drawer";
 
 class Navbar extends Component {
   state = {
@@ -12,6 +13,7 @@ class Navbar extends Component {
 
   drawerOpen = () => {
     this.setState({ showDrawer: true });
+    console.log(this.state.showDrawer);
   };
 
   drawerClose = () => {
@@ -23,45 +25,49 @@ class Navbar extends Component {
         <NavLink className="logo" to="/">
           LOGO
         </NavLink>
-        <ul className="nav-list">
-          <li>
-            <NavLink
-              to="/"
-              className="nav-item"
-              activeClassName="active-link"
-              exact
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              className="nav-item"
-              activeClassName="active-link"
-            >
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/help"
-              className="nav-item"
-              activeClassName="active-link"
-            >
-              Help
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/shop"
-              className="nav-item"
-              activeClassName="active-link"
-            >
-              Shop
-            </NavLink>
-          </li>
-          <li>
+        <div className="nav-links">
+          <ul className="nav-list">
+            <li>
+              <NavLink
+                to="/"
+                className="nav-item"
+                activeClassName="active-link"
+                exact
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/about"
+                className="nav-item"
+                activeClassName="active-link"
+              >
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/help"
+                className="nav-item"
+                activeClassName="active-link"
+              >
+                Help
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/shop"
+                className="nav-item"
+                activeClassName="active-link"
+              >
+                Shop
+              </NavLink>
+            </li>
+            <li></li>
+          </ul>
+
+          <div className="pos-relative">
             <NavLink
               to="/your-cart"
               activeClassName="active-link"
@@ -78,13 +84,18 @@ class Navbar extends Component {
                 </div>
               )}
             </NavLink>
-          </li>
-        </ul>
-        <div className="menu-bar">
-          <button onClick={this.drawerOpen}>
-            <i className="fa fa-bars"></i>
-          </button>
+          </div>
+          <div className="menu-bar">
+            <button onClick={this.drawerOpen}>
+              <i className="fa fa-bars"></i>
+            </button>
+          </div>
         </div>
+        <Drawer
+          showDrawer={this.state.showDrawer}
+          drawerClose={this.drawerClose}
+          addedItems={this.props.addedItems}
+        />
       </nav>
     );
   }

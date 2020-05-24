@@ -125,3 +125,25 @@
   top: 10px;
   left: 10px;
 }
+
+.voucher-applied {
+  display: flex;
+  justify-content: space-between;
+}
+
+.voucher-applied span {
+  color: var(--main-color);
+  font-weight: bold;
+  margin: 0 0.3rem;
+}
+
+.voucher-applied button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.invalid-msg {
+  color: red;
+  font-size: 0.9rem;
+}

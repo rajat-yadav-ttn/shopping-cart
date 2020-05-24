@@ -21,8 +21,12 @@ const ProductItem = (props) => {
           <div className="product-info">
             <h3>{props.name}</h3>
             <div className="product-price">Rs. {props.price}</div>
-            {ratings.map((rating) => {
-              return <span className="star">&#9733;</span>;
+            {ratings.map((rating, index) => {
+              return (
+                <span key={index} className="star">
+                  &#9733;
+                </span>
+              );
             })}
           </div>
         </Link>

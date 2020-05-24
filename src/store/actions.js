@@ -70,9 +70,23 @@ export const Voucher = (value) => {
   };
 };
 
+export const getAddressDetails = (value) => {
+  return {
+    type: "GET_ADDRESS_DETAILS",
+    value,
+  };
+};
+
 export const searchValue = (inputValue) => (dispatch) => {
   dispatch({
     type: "SEARCH",
     inputValue,
   });
+};
+
+export const modelSelect = (model) => {
+  return {
+    type: "MODEL_SELECT",
+    model,
+  };
 };

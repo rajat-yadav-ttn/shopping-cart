@@ -12,15 +12,15 @@
     "model": [
       {
         "modelId": 1,
-        "modelName": "A"
+        "modelName": "800D"
       },
       {
         "modelId": 2,
-        "modelName": "B"
+        "modelName": "90D"
       },
       {
         "modelId": 3,
-        "modelName": "C"
+        "modelName": "250D"
       }
     ],
     "reviews": [
@@ -67,15 +67,15 @@
     "model": [
       {
         "modelId": 1,
-        "modelName": "A"
+        "modelName": "43 inch"
       },
       {
         "modelId": 2,
-        "modelName": "B"
+        "modelName": "55 inch"
       },
       {
         "modelId": 3,
-        "modelName": "C"
+        "modelName": "75 inch"
       }
     ],
     "reviews": [
@@ -115,15 +115,15 @@
     "model": [
       {
         "modelId": 1,
-        "modelName": "A"
+        "modelName": "11"
       },
       {
         "modelId": 2,
-        "modelName": "B"
+        "modelName": "11 Pro"
       },
       {
         "modelId": 3,
-        "modelName": "C"
+        "modelName": "11 Max"
       }
     ],
     "reviews": [
@@ -163,15 +163,11 @@
     "model": [
       {
         "modelId": 1,
-        "modelName": "A"
+        "modelName": "i5"
       },
       {
         "modelId": 2,
-        "modelName": "B"
-      },
-      {
-        "modelId": 3,
-        "modelName": "C"
+        "modelName": "i7"
       }
     ],
     "reviews": [
@@ -211,15 +207,11 @@
     "model": [
       {
         "modelId": 1,
-        "modelName": "A"
+        "modelName": "Slim"
       },
       {
         "modelId": 2,
-        "modelName": "B"
-      },
-      {
-        "modelId": 3,
-        "modelName": "C"
+        "modelName": "Pro"
       }
     ],
     "reviews": [
@@ -259,29 +251,11 @@
     "model": [
       {
         "modelId": 1,
-        "modelName": "A"
+        "modelName": "Single Door"
       },
       {
         "modelId": 2,
-        "modelName": "B"
-      },
-      {
-        "model": [
-          {
-            "modelId": 1,
-            "modelName": "A"
-          },
-          {
-            "modelId": 2,
-            "modelName": "B"
-          },
-          {
-            "modelId": 3,
-            "modelName": "C"
-          }
-        ],
-        "modelId": 3,
-        "modelName": "C"
+        "modelName": "Double Door"
       }
     ],
     "reviews": [

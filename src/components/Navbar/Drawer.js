@@ -7,7 +7,6 @@ const Drawer = (props) => {
       className="drawer"
       style={{
         display: props.showDrawer ? "block" : "none",
-        background: props.isDark ? "#25274b" : "#fff",
       }}
     >
       <ul className="drawer_list">
@@ -17,32 +16,38 @@ const Drawer = (props) => {
         <li>
           <NavLink
             to="/"
-            style={{ color: props.isDark ? "#ccccea" : "#52586A" }}
-            className="nav_link_item_d"
-            activeClassName="active"
+            className="nav-item"
+            activeClassName="active-link"
             exact
           >
-            HOME
+            Home
           </NavLink>
         </li>
         <li>
           <NavLink
-            style={{ color: props.isDark ? "#ccccea" : "#52586A" }}
-            className="nav_link_item_d"
-            activeClassName="active"
-            to="/faqs"
+            to="/about"
+            className="nav-item"
+            activeClassName="active-link"
           >
-            FAQs
+            About
           </NavLink>
         </li>
         <li>
           <NavLink
-            style={{ color: props.isDark ? "#ccccea" : "#52586A" }}
-            className="nav_link_item_d"
-            activeClassName="active"
-            to="/helpful-links"
+            to="/help"
+            className="nav-item"
+            activeClassName="active-link"
           >
-            HELPFUL LINKS
+            Help
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/shop"
+            className="nav-item"
+            activeClassName="active-link"
+          >
+            Shop
           </NavLink>
         </li>
       </ul>

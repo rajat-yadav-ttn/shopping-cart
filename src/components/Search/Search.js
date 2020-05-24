@@ -15,25 +15,29 @@ class Search extends Component {
     });
     return (
       <div className="search-container">
-        <h2 className="search-heading">Search Results For '{search}'</h2>
+        <h2 className="search-heading">Search Results For ' {search} '</h2>
         <div className="three-col-grid">
-          {searched.map((i) => {
-            return (
-              <div>
-                <ProductItem
-                  name={i.name}
-                  price={i.price}
-                  rating={i.rating}
-                  category={i.category}
-                  img={i.img}
-                  quantity={i.quantity}
-                  handleAddCart={() => this.props.addToCart(i.id)}
-                  inCart={i.inCart}
-                  showAddBtns={false}
-                />
-              </div>
-            );
-          })}
+          {searched.length === 0 ? (
+            <div className="search-msg">No Results Found</div>
+          ) : (
+            searched.map((i) => {
+              return (
+                <div>
+                  <ProductItem
+                    name={i.name}
+                    price={i.price}
+                    rating={i.rating}
+                    category={i.category}
+                    img={i.img}
+                    quantity={i.quantity}
+                    handleAddCart={() => this.props.addToCart(i.id)}
+                    inCart={i.inCart}
+                    showAddBtns={false}
+                  />
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     );

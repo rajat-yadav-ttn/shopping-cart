@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./ProductDescription.css";
 import * as actions from "../../store/actions.js";
+import Footer from "../Footer/Footer";
 
 const Review = (props) => {
   let ratings = [];
@@ -29,7 +30,7 @@ class ProductDescription extends Component {
     product: [],
     galleryImg: [],
     thumbImg: this.props.items.img,
-    showModels: false,
+    model: "",
   };
 
   componentDidMount() {
@@ -40,6 +41,7 @@ class ProductDescription extends Component {
     this.setState({
       thumbImg: product.img,
       galleryImg: product.gallery,
+      model: product.model[0].modelName,
     });
   }
 
@@ -48,10 +50,10 @@ class ProductDescription extends Component {
     this.setState({ thumbImg: thumbImg.imgUrl });
   };
 
-  // handleModelSelect = (id) => {
-  //   console.log(id);
-  //   // let selectedModel = this.state.product.find((i) => i.modelId === id);
-  // };
+  modelSelect = (e) => {
+    this.setState({ model: e.target.value });
+    this.props.selectedModel(e.target.value);
+  };
 
   render() {
     const product = this.props.items.find((i) => {
@@ -62,10 +64,6 @@ class ProductDescription extends Component {
     for (let i = 0; i < product.rating; i++) {
       ratings.push("grey");
     }
-
-    // let modelSelected = product.model.find((i) => {
-    //   return this.props.selectedModel === i.modelId;
-    // });
 
     return (
       <div>
@@ -123,6 +121,19 @@ class ProductDescription extends Component {
                   </div>
                 </div>
 
+                <div>
+                  <span className="model-heading">Select Model : </span>
+                  <select
+                    className="model-select"
+                    onChange={this.modelSelect}
+                    value={this.props.model}
+                  >
+                    {product.model.map((i) => {
+                      return <option>{i.modelName}</option>;
+                    })}
+                  </select>
+                </div>
+
                 <div className="product-description">
                   <h3>Product Description</h3>
                   <p>
@@ -155,6 +166,7 @@ class ProductDescription extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
@@ -165,8 +177,9 @@ const mapStateToProps = (state) => {
     addedItems: state.addedItems,
     items: state.items,
     subTotal: state.subTotal,
-    selectedModel: state.selectedModel,
-    isSelected: state.isSelected,
+    // selectedModel: state.selectedModel,
+    // isSelected: state.isSelected,
+    model: state.model,
   };
 };
 
@@ -176,7 +189,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actions.addToCart(id));
     },
 
-    modelSelect: (id) => {
+    selectedModel: (id) => {
       dispatch(actions.modelSelect(id));
     },
   };

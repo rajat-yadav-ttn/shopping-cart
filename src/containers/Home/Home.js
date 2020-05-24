@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 // import ProductItem from "../../components/ProductItem/ProductItem";
 
 import ProductList from "../../components/ProductList/ProductList";
+import Footer from "../../components/Footer/Footer";
 
 // import * as actions from "../../store/actions.js";
 
@@ -71,6 +72,8 @@ class Home extends Component {
             </div>
           </section>
         </div>
+
+        <Footer />
       </div>
     );
   }

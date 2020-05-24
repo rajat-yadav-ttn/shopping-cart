@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 
 import reducer from "./store/reducers.js";
+// import NoPageFound from "./containers/NoPageFound/NoPageFound";
 
 const store = createStore(reducer);
 

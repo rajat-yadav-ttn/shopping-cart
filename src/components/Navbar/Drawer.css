@@ -26,18 +26,13 @@
   color: #000;
 }
 
-.active {
-  color: #ff0019;
-  border-bottom: 5px solid #ff0019;
-}
-
-.active:hover {
-  color: #ff0019;
-}
-
 .drawer_list li {
   list-style-type: none;
-  padding: 18px 0px;
+  padding: 1rem 2rem;
+}
+
+button {
+  cursor: pointer;
 }
 
 .close_btn {

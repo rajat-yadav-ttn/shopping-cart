@@ -6,9 +6,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
+  padding: 0.5rem 5%;
 }
 
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .logo {
   font-size: 2rem;
   font-weight: bold;
@@ -71,6 +76,10 @@ a.your-cart-btn {
 .active-link {
   color: var(--main-color);
 }
+.pos-relative {
+  position: relative;
+  right: 1rem;
+}
 
 .active-link:after {
   content: "";
@@ -89,14 +98,7 @@ a.your-cart-btn {
   font-size: 2rem;
 }
 
-.cart-icon {
-  position: relative;
-  right: 20px;
-  top: 6px;
-}
-
 .cart-icon img {
-  margin-top: -10px;
   height: 35px;
   width: 35px;
 }
@@ -108,7 +110,7 @@ a.your-cart-btn {
 
 .cart-dot {
   position: absolute;
-  top: -18px;
+  top: 0;
   right: -6px;
   background-color: var(--main-color);
   padding: 1px;
@@ -133,6 +135,12 @@ a.your-cart-btn {
 
 .menu-bar i {
   font-size: 1.3rem;
+}
+
+.menu-bar button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {

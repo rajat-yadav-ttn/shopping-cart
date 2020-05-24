@@ -19,6 +19,11 @@ const initialState = {
   isSelected: null,
   voucher: "",
   discount: 0,
+  addressDetails: {},
+  avlVoucher: "20OFF",
+  priceSortMsg: "",
+  RatingSortMsg: "",
+  model: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -109,6 +114,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         items: [...sortedPrice],
+        priceSortMsg: "Low to High",
       };
 
     case "SORT_LOW_HIGH_RATING":
@@ -118,6 +124,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         items: [...sortedRating],
+        ratingSortMsg: "Low to High",
       };
 
     case "SORT_HIGH_LOW_PRICE":
@@ -127,6 +134,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         items: [...sortedPriceHL],
+        priceSortMsg: "High To Low",
       };
 
     case "SORT_HIGH_LOW_RATING":
@@ -136,6 +144,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         items: [...sortedRatingHL],
+        ratingSortMsg: "High To Low",
       };
 
     case "SEARCH":
@@ -165,7 +174,8 @@ const reducer = (state = initialState, action) => {
     case "VOUCHER":
       let voucher = action.value;
       let discount;
-      if (voucher === "20OFF") {
+
+      if (voucher === state.avlVoucher) {
         discount = 20;
       } else {
         discount = 0;
@@ -174,6 +184,20 @@ const reducer = (state = initialState, action) => {
         ...state,
         voucher: voucher,
         discount: discount,
+      };
+
+    case "GET_ADDRESS_DETAILS":
+      let addressDetails = action.value;
+      return {
+        ...state,
+        addressDetails: addressDetails,
+      };
+
+    case "MODEL_SELECT":
+      let model = action.model;
+      return {
+        ...state,
+        model: model,
       };
 
     default:

@@ -6,12 +6,24 @@ import OrderSummary from "../OrderSummary/OrderSummary";
 import * as actions from "../../store/actions.js";
 
 class Payment extends Component {
-  state = {};
-  paymentDone = () => {
-    this.props.emptyCart();
-    this.props.history.push("/order-complete");
-    console.log(this.props.addedItems);
+  state = {
+    totalPrice: "",
   };
+  paymentDone = () => {
+    this.props.history.push("/order-complete");
+    this.props.emptyCart();
+    console.log(this.props.addedItems);
+    localStorage.clear();
+    console.log(this.state.totalPrice);
+    console.log(this.props.addressDetails);
+  };
+
+  componentDidMount() {
+    let totalPrice =
+      this.props.total + this.props.deliveryAddValue - this.props.discount;
+    this.setState({ totalPrice: totalPrice });
+  }
+
   render() {
     return (
       <div className="shipping-container">
@@ -39,7 +51,7 @@ class Payment extends Component {
                 className="pay-radio"
               />
               <div className="payment-container">
-                <label className="pay-method" for="card">
+                <label className="pay-method" htmlFor="card">
                   Credit Card
                 </label>
                 <form className=" grid-form">
@@ -69,7 +81,7 @@ class Payment extends Component {
                 className="pay-radio"
               />
               <div className="payment-container">
-                <label className="pay-method" for="paypal">
+                <label className="pay-method" htmlFor="paypal">
                   Paypal
                 </label>
                 <div className="paypal-content">
@@ -108,6 +120,10 @@ class Payment extends Component {
 const mapStateToProps = (state) => {
   return {
     addedItems: state.addedItems,
+    total: state.total,
+    deliveryAddValue: state.deliveryAddValue,
+    discount: state.discount,
+    addressDetails: state.addressDetails,
   };
 };
 

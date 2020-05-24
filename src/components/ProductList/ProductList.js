@@ -27,7 +27,9 @@ class ProductList extends Component {
         <div className="sort-btns-container">
           <span>Sort By:</span>
           <div>
-            <button className="sort-by-btn">Price By</button>
+            <button className="sort-by-btn">
+              Price By :{this.props.priceSortMsg}
+            </button>
             <div className="sort-container sort-btns">
               <ul>
                 <li onClick={this.sortByPriceLowHigh}>Low To High</li>
@@ -36,7 +38,9 @@ class ProductList extends Component {
             </div>
           </div>
           <div>
-            <button className="sort-by-btn">Rating By</button>
+            <button className="sort-by-btn">
+              Rating By :{this.props.ratingSortMsg}
+            </button>
             <div className="sort-container sort-btns">
               <ul>
                 <li onClick={this.sortByRatingLowHigh}>Low To High</li>
@@ -73,6 +77,8 @@ const mapStateToProps = (state) => {
   return {
     items: state.items,
     addedItems: state.addedItems,
+    priceSortMsg: state.priceSortMsg,
+    ratingSortMsg: state.ratingSortMsg,
   };
 };
 

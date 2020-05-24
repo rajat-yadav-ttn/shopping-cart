@@ -11,38 +11,101 @@ class AddressDetails extends Component {
     firstName: "",
     lastName: "",
     address1: "",
+    address2: "",
     country: "",
     city: "",
     zip: "",
     phone: "",
-    deliveryOption: false,
+    deliveryOption: "",
+    firstNameError: false,
+    lastNameError: false,
+    address1Error: false,
+    countryErorr: false,
+    cityError: false,
+    zipError: false,
+    phoneError: false,
     hasError: false,
+    addressDetails: {},
+    first: "",
+  };
+
+  handlePhone = (e) => {
+    let phone = e.target.value.slice(0, e.target.maxLength);
+    this.setState({ phone: phone });
+  };
+  handleZIP = (e) => {
+    let zip = e.target.value.slice(0, e.target.maxLength);
+    this.setState({ zip: zip });
   };
 
   handleForm = (e) => {
     e.preventDefault();
-    console.log(this.state.hasError);
+    const addressDetails = {
+      [`firstName`]: this.state.firstName,
+      [`lastName`]: this.state.lastName,
+      [`address1`]: this.state.address1,
+      [`address2`]: this.state.address2,
+      [`country`]: this.state.country,
+      [`city`]: this.state.city,
+      [`zip`]: this.state.zip,
+      [`phone`]: this.state.phone,
+      [`deliveryOption`]: this.state.deliveryOption,
+    };
+
+    this.setState({
+      firstNameError: addressDetails.firstName === "" ? true : false,
+      lastNameError: addressDetails.lastName === "" ? true : false,
+      address1Error: addressDetails.address1 === "" ? true : false,
+      countryError: addressDetails.country === "" ? true : false,
+      cityError: addressDetails.city === "" ? true : false,
+      zipError:
+        addressDetails.zip === "" || addressDetails.zip.length < 6
+          ? true
+          : false,
+      phoneError:
+        addressDetails.phone === "" || addressDetails.phone.length < 10
+          ? true
+          : false,
+    });
 
     if (
-      this.state.firstName !== "" &&
-      this.state.lastName !== "" &&
-      this.state.address1 !== "" &&
-      this.state.country !== "" &&
-      this.state.city !== "" &&
-      this.state.zip !== "" &&
-      this.state.phone !== "" &&
-      this.state.deliveryOption !== false
+      addressDetails.firstName !== "" &&
+      addressDetails.lastName !== "" &&
+      addressDetails.address1 !== "" &&
+      addressDetails.country !== "" &&
+      addressDetails.city !== "" &&
+      addressDetails.zip !== "" &&
+      addressDetails.zip.length === 6 &&
+      addressDetails.phone !== "" &&
+      addressDetails.phone.length === 10 &&
+      addressDetails.deliveryOption !== ""
     ) {
       this.props.history.push("/payment");
-      this.setState({ hasError: false });
     } else {
-      console.log("Fill");
-      this.setState({ hasError: true });
+      console.log("ERROR");
     }
+
+    localStorage.setItem("shippingDetails", JSON.stringify(addressDetails));
   };
 
+  componentDidMount() {
+    let addressData = JSON.parse(localStorage.getItem("shippingDetails"));
+    if (localStorage.getItem("shippingDetails")) {
+      this.setState({
+        firstName: addressData.firstName,
+        lastName: addressData.lastName,
+        address1: addressData.address1,
+        address2: addressData.address2,
+        country: addressData.country,
+        city: addressData.city,
+        zip: addressData.zip,
+        phone: addressData.phone,
+        deliveryOption: addressData.deliveryOption,
+      });
+    }
+  }
+
   render() {
-    console.log("new total " + this.props.newTotal);
     return (
       <div className="shipping-container">
         <div>
@@ -56,18 +119,10 @@ class AddressDetails extends Component {
             <li className="cart-nav-item cart-nav-active">
               2. Shipping Details
             </li>
-            <li>
-              <Link to="/payment" className="cart-nav-item">
-                3. Payment
-              </Link>
-            </li>
+            <li className="cart-nav-item">3. Payment</li>
           </ul>
           <div>
             <h3>SHIPPING DETAILS</h3>
-
-            {this.state.hasError ? (
-              <div className="error-msg">Fill All the Details</div>
-            ) : null}
 
             <form onSubmit={this.handleForm}>
               <div className="address-form grid-form">
@@ -75,12 +130,22 @@ class AddressDetails extends Component {
                   type="text"
                   placeholder="First Name*"
                   onChange={(e) => this.setState({ firstName: e.target.value })}
+                  style={
+                    this.state.firstNameError
+                      ? { borderColor: "red" }
+                      : { borderColor: "#cecece" }
+                  }
                   value={this.state.firstName}
                 />
                 <input
                   type="text"
                   placeholder="Last Name*"
                   onChange={(e) => this.setState({ lastName: e.target.value })}
+                  style={
+                    this.state.lastNameError
+                      ? { borderColor: "red" }
+                      : { borderColor: "#cecece" }
+                  }
                   value={this.state.lastName}
                 />
                 <input
@@ -88,35 +153,64 @@ class AddressDetails extends Component {
                   placeholder="Address Line 1*"
                   className="full-width-input"
                   onChange={(e) => this.setState({ address1: e.target.value })}
+                  style={
+                    this.state.address1Error
+                      ? { borderColor: "red" }
+                      : { borderColor: "#cecece" }
+                  }
                   value={this.state.address1}
                 />
                 <input
                   type="text"
                   placeholder="Address Line 2"
                   className="full-width-input"
+                  onChange={(e) => this.setState({ address2: e.target.value })}
+                  value={this.state.address2}
                 />
                 <input
                   type="text"
                   placeholder="Country*"
                   onChange={(e) => this.setState({ country: e.target.value })}
+                  style={
+                    this.state.countryError
+                      ? { borderColor: "red" }
+                      : { borderColor: "#cecece" }
+                  }
                   value={this.state.country}
                 />
                 <input
                   type="text"
                   placeholder="City*"
                   onChange={(e) => this.setState({ city: e.target.value })}
+                  style={
+                    this.state.cityError
+                      ? { borderColor: "red" }
+                      : { borderColor: "#cecece" }
+                  }
                   value={this.state.city}
                 />
                 <input
                   type="number"
                   placeholder="Zip/Postal Code*"
-                  onChange={(e) => this.setState({ zip: e.target.value })}
+                  onChange={this.handleZIP}
+                  maxLength={6}
+                  style={
+                    this.state.zipError
+                      ? { borderColor: "red" }
+                      : { borderColor: "#cecece" }
+                  }
                   value={this.state.zip}
                 />
                 <input
                   type="number"
                   placeholder="Phone Number*"
-                  onChange={(e) => this.setState({ phone: e.target.value })}
+                  onChange={this.handlePhone}
+                  maxLength={10}
+                  style={
+                    this.state.phoneError
+                      ? { borderColor: "red" }
+                      : { borderColor: "#cecece" }
+                  }
                   value={this.state.phone}
                 />
 
